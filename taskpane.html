@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mail auf Desktop speichern</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="header-icon">📥</div>
+      <div class="header-text">
+        <h1>Mail speichern</h1>
+        <p>Desktop-Export</p>
+      </div>
+    </header>
+
+    <!-- Loading State -->
+    <div id="screen-loading" class="screen active">
+      <div class="spinner-wrap">
+        <div class="spinner"></div>
+        <p>Mail wird geladen …</p>
+      </div>
+    </div>
+
+    <!-- Main Screen -->
+    <div id="screen-main" class="screen">
+      <div class="mail-info" id="mail-info">
+        <div class="mail-subject" id="mail-subject">–</div>
+        <div class="mail-meta">
+          <span id="mail-from">–</span>
+          <span class="dot">·</span>
+          <span id="mail-date">–</span>
+        </div>
+      </div>
+
+      <!-- No Attachments -->
+      <div id="no-attachments-block" class="option-block hidden">
+        <div class="option-icon">📧</div>
+        <p>Diese Mail hat <strong>keine Anhänge</strong>.<br>Die Mail wird als <code>.eml</code>-Datei auf deinen Desktop gespeichert.</p>
+        <button class="btn btn-primary" id="btn-save-mail-only">
+          <span class="btn-icon">💾</span> Mail jetzt speichern
+        </button>
+      </div>
+
+      <!-- Has Attachments -->
+      <div id="attachments-block" class="hidden">
+        <div class="section-label">Was soll gespeichert werden?</div>
+
+        <div class="choice-grid">
+          <button class="choice-card" id="choice-mail-only">
+            <div class="choice-icon">📧</div>
+            <div class="choice-title">Nur Mail</div>
+            <div class="choice-sub">Als .eml-Datei</div>
+          </button>
+          <button class="choice-card" id="choice-attachments-only">
+            <div class="choice-icon">📎</div>
+            <div class="choice-title">Nur Anhänge</div>
+            <div class="choice-sub">Alle Dateien</div>
+          </button>
+          <button class="choice-card" id="choice-both">
+            <div class="choice-icon">📦</div>
+            <div class="choice-title">Alles</div>
+            <div class="choice-sub">Mail + Anhänge</div>
+          </button>
+          <button class="choice-card" id="choice-select">
+            <div class="choice-icon">🗂️</div>
+            <div class="choice-title">Auswählen</div>
+            <div class="choice-sub">Bestimmte Anhänge</div>
+          </button>
+        </div>
+
+        <!-- Attachment selector -->
+        <div id="attachment-selector" class="hidden">
+          <div class="section-label" style="margin-top:16px">Anhänge wählen:</div>
+          <div id="attachment-list" class="attachment-list"></div>
+          <label class="checkbox-row" id="include-mail-row">
+            <input type="checkbox" id="include-mail-check" />
+            <span>Mail ebenfalls speichern (.eml)</span>
+          </label>
+          <button class="btn btn-primary" id="btn-save-selected" disabled>
+            <span class="btn-icon">💾</span> Auswahl speichern
+          </button>
+        </div>
+
+        <!-- Action buttons for direct choices -->
+        <div id="action-buttons" class="hidden">
+          <button class="btn btn-primary" id="btn-execute">
+            <span class="btn-icon">💾</span> <span id="btn-execute-label">Speichern</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Screen -->
+    <div id="screen-progress" class="screen">
+      <div class="spinner-wrap">
+        <div class="spinner"></div>
+        <p id="progress-text">Wird gespeichert …</p>
+      </div>
+    </div>
+
+    <!-- Success Screen -->
+    <div id="screen-success" class="screen">
+      <div class="result-wrap success">
+        <div class="result-icon">✅</div>
+        <h2>Erfolgreich gespeichert!</h2>
+        <div id="saved-files-list" class="saved-files"></div>
+        <p class="hint">Die Mail wurde aus Outlook gelöscht.</p>
+        <button class="btn btn-secondary" id="btn-done">Fertig</button>
+      </div>
+    </div>
+
+    <!-- Error Screen -->
+    <div id="screen-error" class="screen">
+      <div class="result-wrap error">
+        <div class="result-icon">⚠️</div>
+        <h2>Fehler</h2>
+        <p id="error-message">Ein unbekannter Fehler ist aufgetreten.</p>
+        <button class="btn btn-secondary" id="btn-retry">Erneut versuchen</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="taskpane.js"></script>
+</body>
+</html>
