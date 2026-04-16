@@ -3,101 +3,45 @@
   xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
-  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
   xsi:type="MailApp">
 
-  <Id>12345678-1234-1234-1234-123456789012</Id>
+  <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>MailSaver</ProviderName>
+  <ProviderName>Markus Koch</ProviderName>
   <DefaultLocale>de-DE</DefaultLocale>
-  <DisplayName DefaultValue="Mail auf Desktop speichern" />
-  <Description DefaultValue="Speichert die ausgewählte Mail und ihre Anhänge auf den Desktop." />
-  <IconUrl DefaultValue="https://markuskoch71.github.io/mail-saver/assets/icon-64.png" />
-  <HighResolutionIconUrl DefaultValue="https://markuskoch71.github.io/mail-saver/assets/icon-128.png" />
-  <SupportUrl DefaultValue="https://markuskoch71.github.io/mail-saver" />
+  <DisplayName DefaultValue="Mail auf Desktop speichern"/>
+  <Description DefaultValue="Speichert die ausgewaehlte Mail und Anhaenge auf den Desktop."/>
+  <IconUrl DefaultValue="https://markuskoch71.github.io/mail-saver/icon.png"/>
+  <HighResolutionIconUrl DefaultValue="https://markuskoch71.github.io/mail-saver/icon.png"/>
+  <SupportUrl DefaultValue="https://markuskoch71.github.io/mail-saver/"/>
+
   <AppDomains>
-    <AppDomain>https://markuskoch71.github.io/mail-saver</AppDomain>
+    <AppDomain>https://markuskoch71.github.io</AppDomain>
   </AppDomains>
 
   <Hosts>
-    <Host Name="Mailbox" />
+    <Host Name="Mailbox"/>
   </Hosts>
 
   <Requirements>
     <Sets>
-      <Set Name="Mailbox" MinVersion="1.1" />
+      <Set Name="Mailbox" MinVersion="1.1"/>
     </Sets>
   </Requirements>
 
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://markuskoch71.github.io/mail-saver/taskpane.html" />
-        <RequestedHeight>450</RequestedHeight>
+        <SourceLocation DefaultValue="https://markuskoch71.github.io/mail-saver/taskpane.html"/>
+        <RequestedHeight>500</RequestedHeight>
       </DesktopSettings>
     </Form>
   </FormSettings>
 
   <Permissions>ReadWriteItem</Permissions>
+
   <Rule xsi:type="RuleCollection" Mode="Or">
-    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
   </Rule>
 
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
-    <Requirements>
-      <bt:Sets DefaultMinVersion="1.3">
-        <bt:Set Name="Mailbox" />
-      </bt:Sets>
-    </Requirements>
-
-    <Hosts>
-      <Host xsi:type="MailHost">
-        <DesktopFormFactor>
-          <FunctionFile resid="Commands.Url" />
-          <ExtensionPoint xsi:type="MessageReadCommandSurface">
-            <OfficeTab id="TabDefault">
-              <Group id="msgReadGroup">
-                <Label resid="GroupLabel" />
-                <Control xsi:type="Button" id="msgReadOpenPaneButton">
-                  <Label resid="TaskpaneButton.Label" />
-                  <Supertip>
-                    <Title resid="TaskpaneButton.Label" />
-                    <Description resid="TaskpaneButton.Tooltip" />
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16x16" />
-                    <bt:Image size="32" resid="Icon.32x32" />
-                    <bt:Image size="80" resid="Icon.80x80" />
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>ButtonId1</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url" />
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-        </DesktopFormFactor>
-      </Host>
-    </Hosts>
-
-    <Resources>
-      <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://markuskoch71.github.io/mail-saver/assets/icon-16.png" />
-        <bt:Image id="Icon.32x32" DefaultValue="https://markuskoch71.github.io/mail-saver/assets/icon-32.png" />
-        <bt:Image id="Icon.80x80" DefaultValue="https://markuskoch71.github.io/mail-saver/assets/icon-80.png" />
-      </bt:Images>
-      <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://markuskoch71.github.io/mail-saver/commands.html" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://markuskoch71.github.io/mail-saver/taskpane.html" />
-      </bt:Urls>
-      <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="Mail Speichern" />
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Auf Desktop speichern" />
-      </bt:ShortStrings>
-      <bt:LongStrings>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Speichert die Mail und Anhänge auf den Desktop." />
-      </bt:LongStrings>
-    </Resources>
-  </VersionOverrides>
 </OfficeApp>
