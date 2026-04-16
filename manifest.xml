@@ -2,17 +2,16 @@
 <OfficeApp
   xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xsi:type="MailApp">
 
-  <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
+  <Id>c9f8e7d6-b5a4-3210-fedc-ba9876543210</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Markus Koch</ProviderName>
   <DefaultLocale>de-DE</DefaultLocale>
   <DisplayName DefaultValue="Mail auf Desktop speichern"/>
-  <Description DefaultValue="Speichert die ausgewaehlte Mail und Anhaenge auf den Desktop."/>
-  <IconUrl DefaultValue="https://markuskoch71.github.io/mail-saver/icon.png"/>
-  <HighResolutionIconUrl DefaultValue="https://markuskoch71.github.io/mail-saver/icon.png"/>
+  <Description DefaultValue="Speichert die ausgewaehlte Mail und Anhaenge auf den Desktop"/>
+  <IconUrl DefaultValue="https://markuskoch71.github.io/mail-saver/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://markuskoch71.github.io/mail-saver/icon-64.png"/>
   <SupportUrl DefaultValue="https://markuskoch71.github.io/mail-saver/"/>
 
   <AppDomains>
